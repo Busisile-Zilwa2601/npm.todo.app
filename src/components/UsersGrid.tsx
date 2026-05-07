@@ -3,7 +3,7 @@ import { IUser } from '../types/IUser';
 
 interface Props {
     users: IUser[];
-    onClick: (userId: string) => void;
+    onClick: (user: IUser) => void;
 }
 
 export const UserGrid: React.FC<Props> = ({ users, onClick }) => {
@@ -20,7 +20,7 @@ export const UserGrid: React.FC<Props> = ({ users, onClick }) => {
             <tbody>
                 {
                     users.map(user => (
-                        <tr key={user.id} onClick={()=> onClick(user.id)}>
+                        <tr key={user.id} onClick={()=> onClick(user)}>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.phone}</td>
