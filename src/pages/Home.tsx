@@ -15,9 +15,7 @@ export const HomePage: React.FC = () => {
     
     return (
         <div>
-            <main>
-                <UserGrid users={users} onClick={setSelectedUser} />
-            </main>
+            <UserGrid users={users} onClick={setSelectedUser} />
             {
                 selectedUser && (
                     <Modal onClose={()=> setSelectedUser(null)}>
