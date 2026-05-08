@@ -11,6 +11,7 @@ export const UserGrid: React.FC<Props> = ({ users, onClick }) => {
         <table>
             <thead>
                 <tr>
+                    <td>ID</td>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
@@ -21,6 +22,7 @@ export const UserGrid: React.FC<Props> = ({ users, onClick }) => {
                 {
                     users.map(user => (
                         <tr key={user.id} onClick={()=> onClick(user)}>
+                            <td>{user.id}</td>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.phone}</td>
