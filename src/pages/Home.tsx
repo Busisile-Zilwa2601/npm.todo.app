@@ -8,13 +8,6 @@ import { TodoList } from "../components/UserTodoList";
 import { Modal } from "../components/Modal";
 import { DataTable } from "../components/Table";
 
-const columns: { key: keyof IUser; header: string }[] = [
-    {key: 'id', header: 'ID'},
-    {key: 'name', header: 'Name'},
-    {key: 'phone', header: 'Phone'},
-    {key: 'email', header: 'Email'},
-    {key: 'website', header: 'Website'}
-];
 
 export const HomePage: React.FC = () => {
     const { users, userTodos,error, loading } = useDataHook();
@@ -28,7 +21,14 @@ export const HomePage: React.FC = () => {
         <div>
             <DataTable<IUser> 
                 data={users}
-                columns={columns}
+                columns={[
+                    {key: 'id', header: 'ID'},
+                    {key: 'name', header: 'Name', filterable: true},
+                    {key: 'phone', header: 'Phone'},
+                    {key: 'email', header: 'Email'},
+                    {key: 'website', header: 'Website'}
+                ]}
+                manulaPageSize={5}
                 onRowClick={(user) => {
                     setSelectedUser(user);
                 }}
