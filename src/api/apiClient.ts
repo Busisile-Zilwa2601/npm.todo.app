@@ -1,5 +1,4 @@
 import { apiRequest } from './apiRequest';
-import { IUser } from '../types/IUser';
 
 export const apiClient = {
     get: <T>(endpoint: string) => apiRequest<T>(endpoint, { method: 'GET' }),
