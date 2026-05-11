@@ -5,7 +5,7 @@ export const Modal: React.FC<{ children: React.ReactNode; onClose: () => void }>
     <div className='Outer-div-Modal'>
       <div className='Inner-div-Modal'>
         <div className='Modal-Header'>
-          <button onClick={onClose}>Close</button>
+          <button type='button' className='btn-close' onClick={onClose} aria-label='Close'></button>
         </div>
         <div className='Modal-scroll'>
           {children}

@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { Breadcrumbs } from '../components/BreadCrumbs';
 
 export const RootLayout: React.FC = () => {
     return (
@@ -10,6 +11,7 @@ export const RootLayout: React.FC = () => {
                     <NavLink to='/todos'>To do</NavLink>
                 </nav>
             </header>
+            <Breadcrumbs />
             <main>
                 <Outlet />
             </main>

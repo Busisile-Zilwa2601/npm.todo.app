@@ -14,8 +14,8 @@ export const TodoPage: React.FC = () => {
         <DataTable<ITodo>
             data={todos}
             columns={[
-                { key: 'title', header: 'Title' },
-                { key: 'completed', header: 'Completed' },
+                { key: 'title', header: 'Title', filterable: true },
+                { key: 'completed', header: 'Completed', filterable: true},
             ]}
             renderCell={(row, column) => {
                 if (column.key === 'completed') {

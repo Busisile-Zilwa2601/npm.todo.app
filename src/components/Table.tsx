@@ -60,7 +60,7 @@ export function DataTable<T extends object>({data, columns, onRowClick, renderCe
 
     return (
         <div>
-            <select onChange={(e) => setPageSize(Number(e.target.value))}>
+            <select onChange={(e) => setPageSize(Number(e.target.value))} className="form-select form-select-sm">
                 <option value={5}>5</option>
                 <option value={10}>10</option>
                 <option value={15}>15</option>
@@ -79,6 +79,7 @@ export function DataTable<T extends object>({data, columns, onRowClick, renderCe
                                         colomn.filterable && (
                                             <input
                                                 type="text"
+                                                className="form-control"
                                                 placeholder={`Filter ${colomn.header}`}
                                                 value={filters[colomn.key] || ''}
                                                 onChange={(e)=> setFilters(prev => ({
@@ -98,6 +99,7 @@ export function DataTable<T extends object>({data, columns, onRowClick, renderCe
                         <tr
                         key={index}
                         onClick={()=> onRowClick?.(row)}
+                        className={onRowClick ? 'clickable-row' : ''}
                         style={{cursor : onRowClick ? 'pointer' : 'default'}}
                         >
                             {
@@ -114,29 +116,25 @@ export function DataTable<T extends object>({data, columns, onRowClick, renderCe
                 </tbody>
 
             </table>
-            <div className="pagination">
+            <div className="button-paging d-flex justify-content-end gap-2">
                 <button 
+                    className="btn btn-primary"
                     onClick={()=> gotToPage(1)} 
                     disabled = {currentPage === 1}>
                         First
                 </button>
                 <button
+                    className="btn btn-primary"
                     onClick={()=> gotToPage(currentPage - 1)}
                     disabled = {currentPage === 1}
                 >Previous</button>
-                {/* {
-                    Array.from({length: totalPages}, (_, index) => (
-                        <button
-                            key={index + 1}
-                            onClick={() => gotToPage(index + 1)}
-                        >{ index + 1 }</button>
-                    ))
-                } */}
                 <button
+                    className="btn btn-primary"
                     onClick = {()=> gotToPage(currentPage + 1)}
                     disabled={currentPage === totalPages}
                 > Next </button>
                 <button
+                    className="btn btn-primary"
                     onClick={goToLastPage}
                     disabled={currentPage === totalPages}
                 >Last</button>

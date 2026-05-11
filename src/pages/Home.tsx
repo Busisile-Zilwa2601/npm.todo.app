@@ -22,35 +22,37 @@ export function Home() {
             <Container fluid>
                 <div className="title-holder">
                     <h2>Dashboard</h2>
+                    <hr />
                 </div>
                 <Row>
                     <Col sm={3}>
-                        <Card>
+                        <Card className="info-DashboardCard">
                             <Card.Body>
-                                <Card.Title>Users</Card.Title>
+                                <Card.Title>Users <span className="icon-span"><i className="fa-regular fa-user"></i></span></Card.Title>
                                 <Card.Text>{userCount}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col sm={3}><Card>
+                    <Col sm={3}>
+                        <Card className="info-DashboardCard">
                             <Card.Body>
-                                <Card.Title>ToDo</Card.Title>
+                                <Card.Title>ToDo <span className="icon-span"><i className="fa-solid fa-list"></i></span></Card.Title>
                                 <Card.Text>{todoCount}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
                     <Col sm={3}>
-                        <Card>
+                        <Card className="info-DashboardCard">
                             <Card.Body>
-                                <Card.Title>Completed Todo</Card.Title>
+                                <Card.Title>Completed Todo <span className="icon-span"><i className="fa-solid fa-clipboard-check"></i></span></Card.Title>
                                 <Card.Text>{completedTodos}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
                     <Col sm={3}>
-                        <Card>
+                        <Card className="info-DashboardCard">
                             <Card.Body>
-                                <Card.Title>In Complete Todo</Card.Title>
+                                <Card.Title>In Complete Todo <span className="icon-span"><i className="fa-regular fa-calendar-check"></i></span></Card.Title>
                                 <Card.Text>{inCompleTodos}</Card.Text>
                             </Card.Body>
                         </Card>

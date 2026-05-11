@@ -11,6 +11,7 @@ export const TodoList: React.FC<Props> = ({todos}) => {
         <table>
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Title</th>
                     <th>Status</th>
                 </tr>

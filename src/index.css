@@ -35,6 +35,11 @@ code {
     monospace;
 }
 
+table {
+  width: 100%;
+  max-width: 1200px;
+}
+
 table, th, td {
   border-bottom: 1px solid #ddd;
   padding: 8px;
@@ -46,6 +51,10 @@ th {
 
 tbody, tr {
   cursor: pointer;
+}
+
+.clickable-row:hover {
+  background-color: #f0f0f0;
 }
 
 
@@ -95,11 +104,10 @@ header {
 }
 
 main {
-  max-width: 100%;
-  width: 100%;
-  justify-content: center;
-  display: flex;
+  width: 80%;
+  margin: 0 auto;
 }
+
 
 /* navbar */
 header nav {
@@ -120,7 +128,71 @@ header nav a.active {
   background: var(--secondry);
 }
 
-.card {
-  width: 200px;
-  height: 15vh;
+.user-details-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  width: 80%;
+  margin: 20px auto;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.breadcrumbs > * {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.breadcrumbs .crumb::after{
+  content: '>';
+  margin-left: 10px;
+}
+
+.breadcrumbs .crumb:last-child:after {
+  display: none;
+}
+
+.breadcrumbs .crumb a {
+  color: #011811;
+}
+
+#home  {
+  width: 80%;
+}
+
+/* Dashboard Card */
+.info-DashboardCard {
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  width: 240px;
+  display: inline-block;
+  margin: 26px 0 0 36px;
+  vertical-align: top;
+}
+
+.info-DashboardCard:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+}
+
+.form-select {
+  width: 5%;
+  margin-bottom: 2px;
+}
+.button-paging {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.icon-span {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
 }
