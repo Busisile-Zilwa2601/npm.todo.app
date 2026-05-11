@@ -49,6 +49,7 @@ export const useDataHook = () => {
         } 
     };
 
+
     useEffect(() => {
         fetchUsers();
         fetchTodos();
@@ -61,5 +62,5 @@ export const useDataHook = () => {
         }
     }, [selectedUser]);
 
-    return { users, todos, userTodos, loading, error };
+    return { users, todos, userTodos, loading, error};
 };
