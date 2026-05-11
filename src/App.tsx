@@ -9,15 +9,17 @@ import { AppProvider } from './context/AppContext';
 import { RootLayout } from './layout/RootLayout';
 
 // Pages
-import {HomePage} from './pages/Home';
-import { TodoPage } from './pages/Todo';
+import { Home } from './pages/Home';
+import {UserPage} from './pages/UserPage';
+import { TodoPage } from './pages/TodoPage';
 
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout/>}>
-        <Route path='/' element={<HomePage />} />
+        <Route path='/' element={<Home />}/>
+        <Route path='/users' element={<UserPage />} />
         <Route path='/todos' element={<TodoPage />} />
     </Route>
   )

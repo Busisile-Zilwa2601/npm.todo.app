@@ -1,47 +1,63 @@
 import React from "react";
-import { useAppContext } from "../context/AppContext";
+import {Container, Row, Col, Card} from 'react-bootstrap';
 import { useDataHook } from "../hook/useDataHook";
-import { IUser } from "../types/IUser";
 
-import { TodoList } from "../components/UserTodoList";
+import { LoadingSpinner } from "../components/Spinner";
 
-import { Modal } from "../components/Modal";
-import { DataTable } from "../components/Table";
+export function Home() {
+    const {users, todos, error, loading} = useDataHook();
+
+    if(loading) return <LoadingSpinner />;
+    if(error) return <p>{error}</p>
+
+    const userCount = users.length;
+    const todoCount = todos.length;
+
+    const inCompleTodos = todos.filter( inComplete => inComplete.completed == false).length;
+    const completedTodos = todoCount - inCompleTodos; 
 
 
-export const HomePage: React.FC = () => {
-    const { users, userTodos,error, loading } = useDataHook();
-    const { selectedUser, setSelectedUser } = useAppContext();
-
-    if(loading) return <p>loading</p>;
-    if(error) return <p>{error}</p>;
-
-    
     return (
-        <div>
-            <DataTable<IUser> 
-                data={users}
-                columns={[
-                    {key: 'id', header: 'ID'},
-                    {key: 'name', header: 'Name', filterable: true},
-                    {key: 'phone', header: 'Phone'},
-                    {key: 'email', header: 'Email'},
-                    {key: 'website', header: 'Website'}
-                ]}
-                manulaPageSize={5}
-                onRowClick={(user) => {
-                    setSelectedUser(user);
-                }}
-            />
-            {
-                selectedUser && (
-                    <Modal onClose={()=> setSelectedUser(null)}>
-                        { loading && <p>Loading...</p>}
-                        <TodoList todos={userTodos} />
-                    </Modal>
-                )
-            }
-        </div>
-    )
+        <section id="home">
+            <Container fluid>
+                <div className="title-holder">
+                    <h2>Dashboard</h2>
+                </div>
+                <Row>
+                    <Col sm={3}>
+                        <Card>
+                            <Card.Body>
+                                <Card.Title>Users</Card.Title>
+                                <Card.Text>{userCount}</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col sm={3}><Card>
+                            <Card.Body>
+                                <Card.Title>ToDo</Card.Title>
+                                <Card.Text>{todoCount}</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col sm={3}>
+                        <Card>
+                            <Card.Body>
+                                <Card.Title>Completed Todo</Card.Title>
+                                <Card.Text>{completedTodos}</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col sm={3}>
+                        <Card>
+                            <Card.Body>
+                                <Card.Title>In Complete Todo</Card.Title>
+                                <Card.Text>{inCompleTodos}</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
 
+                </Row>
+            </Container>
+        </section>
+    )
 }

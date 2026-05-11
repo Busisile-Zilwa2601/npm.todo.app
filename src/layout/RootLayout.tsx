@@ -5,7 +5,8 @@ export const RootLayout: React.FC = () => {
         <div className='root-layout'>
             <header>
                 <nav>
-                    <NavLink to='/'>Users</NavLink>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to='/users'>Users</NavLink>
                     <NavLink to='/todos'>To do</NavLink>
                 </nav>
             </header>
