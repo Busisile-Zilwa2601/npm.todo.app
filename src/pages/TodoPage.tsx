@@ -2,15 +2,12 @@ import { useDataHook } from "../hook/useDataHook";
 import { ITodo } from "../types/ITodo";
 
 import {  DataTable } from '../components/Table';
-
-const columns: {key: keyof ITodo, header: string }[] = [
-
-]; 
+import { LoadingSpinner } from "../components/Spinner";
 
 export const TodoPage: React.FC = () => {
     const { todos, error, loading } = useDataHook();
 
-    if(loading) return <p>Loading...</p>;
+    if(loading) return <LoadingSpinner />;
     if(error) return <p>{error}</p>;
 
     return(

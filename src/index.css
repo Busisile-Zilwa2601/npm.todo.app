@@ -1,3 +1,5 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
 :root {
   --primary: #E7FAFE;
   --secondry: #63F8DA;
@@ -15,10 +17,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 20px;
-  /* display: flex;
+}
+
+.loading-spinner-wrapper {
+  display: flex;
   justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh; */
+  align-items: center;
+  min-height: calc(100vh - 40px);
 }
 * {
   margin: 0;
@@ -79,7 +84,6 @@ tbody, tr {
 /* page layout */
 .root-layout {
   width: 100%;
-  max-width: 1200px;
 }
 
 header {
@@ -114,4 +118,9 @@ header nav a {
 
 header nav a.active {
   background: var(--secondry);
+}
+
+.card {
+  width: 200px;
+  height: 15vh;
 }
